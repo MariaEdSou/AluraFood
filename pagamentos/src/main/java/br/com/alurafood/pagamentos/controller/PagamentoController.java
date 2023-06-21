@@ -28,8 +28,8 @@ public class PagamentoController {
         return service.obterTodos(paginacao);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<PagamentoDto> detalhar(@PageableDefault @NotNull Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<PagamentoDto> detalhar(@PageableDefault @NotNull @PathVariable Long id) {
         PagamentoDto dto = service.obterPorId(id);
 
         return ResponseEntity.ok(dto);
